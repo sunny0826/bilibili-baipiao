@@ -4,5 +4,14 @@ name: 白嫖一时爽
 steps:
 - name: 运行
   image: python:3.7
+  settings:
+    BILIBILI_COOKIES:
+      from_secret: BILIBILI_COOKIES
+    EMAIL_SENDER:
+      from_secret: EMAIL_SENDER
+    EMAIL_RECEIVER:
+      from_secret: EMAIL_RECEIVER
+    EMAIL_PASS:
+      from_secret: EMAIL_PASS
   commands:
   - make run
