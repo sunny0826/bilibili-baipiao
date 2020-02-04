@@ -227,8 +227,7 @@ def handel_ups(top3, ups_detail, total):
                       </style>
                   </head>
                   <body>
-                    <h2>白嫖一时爽，一直白嫖一直爽</h2>
-                    <h3>总白嫖数：{total}&nbsp;&nbsp;最近白嫖最多up主 TOP3</h3>
+                    <h3>最近白嫖最多up主 TOP3</h3>
                     <table class="dataintable">
                       <tr>
                         <th>排名</th>
@@ -237,6 +236,8 @@ def handel_ups(top3, ups_detail, total):
                       </tr>
                       {table_tr}
                     </table>
+                    <h3>总白嫖数：{total}</h3>
+                    <h2>白嫖一时爽，一直白嫖一直爽</h2>
                   </body>
                 </html>
                 """.format(table_tr=table_tr, total=total)
