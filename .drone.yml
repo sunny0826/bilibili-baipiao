@@ -2,7 +2,7 @@ kind: pipeline
 name: 白嫖一时爽
 
 steps:
-- name: 运行
+- name: 一直白嫖一直爽
   image: python:3.7
   settings:
     BILIBILI_COOKIES:
@@ -14,5 +14,4 @@ steps:
     EMAIL_PASS:
       from_secret: EMAIL_PASS
   commands:
-  - export
   - make run

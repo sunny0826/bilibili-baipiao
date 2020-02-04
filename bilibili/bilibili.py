@@ -9,8 +9,9 @@ from collections import Counter
 
 import requests
 from prettytable import PrettyTable
-from bilibili.sendemail import EmailSend
 from tqdm import tqdm
+
+from bilibili.sendemail import EmailSend
 
 
 def _get_cookies_file(filename):
@@ -163,8 +164,8 @@ def print_table(top3):
     print(table)
 
 
-def handel_ups(top3, ups_detail):
-    img_list = []
+def handel_ups(top3, ups_detail, total):
+    img_list = ["img/book.png"]
     table_tr = ''
     for i, item in enumerate(top3):
         mid = ups_detail[item[0]]['mid']
@@ -181,7 +182,7 @@ def handel_ups(top3, ups_detail):
             <td><img src="cid:image{count}" class="round_icon"  alt="">&nbsp;&nbsp;<a href="{url}">{name}</a></td>
             <td>{num}</td>
           </tr>
-        """.format(rank=i + 1, url=space_url, name=item[0], num=item[1], count=i)
+        """.format(rank=i + 1, url=space_url, name=item[0], num=item[1], count=i+1)
         table_tr += tr
 
     email = EmailSend()
@@ -190,6 +191,10 @@ def handel_ups(top3, ups_detail):
                 <html>
                   <head>
                       <style>
+                        body {{
+                          background-image:url("cid:image{{0}}");
+                          background-repeat:no-repeat;
+                        }}
                         .round_icon{{
                           width: 34px;
                           height: 34px;
@@ -225,17 +230,17 @@ def handel_ups(top3, ups_detail):
                   </head>
                   <body>
                     <h2>白嫖一时爽，一直白嫖一直爽</h2>
-                    <h3>最近白嫖最多up主 TOP3</h3>
+                    <h3>总白嫖数：{total}最近白嫖最多up主 TOP3</h3>
                     <table class="dataintable">
                       <tr>
                         <th>排名</th>
                         <th>up主</th>
                         <th>白嫖数</th>
                       </tr>
-                      {0}
+                      {table_tr}
                     </table>
                   </body>
                 </html>
-                """.format(table_tr)
+                """.format(table_tr=table_tr, total=total)
     email.send_email(img_list)
     print('send email finish!')
