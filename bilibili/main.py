@@ -3,7 +3,6 @@
 # Author: guoxudong
 from pyfiglet import figlet_format
 
-# from bilibili.bilibili import get_analysis
 from bilibili.bilibili import get_analysis
 
 
