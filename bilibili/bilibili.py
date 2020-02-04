@@ -186,7 +186,7 @@ def handel_ups(top3, ups_detail, total):
         table_tr += tr
 
     email = EmailSend()
-    email.title = '白嫖周报'
+    email.title = '白嫖周报-本周白嫖数：{total}'.format(total=total)
     email.html = """
                 <html>
                   <head>
@@ -236,10 +236,9 @@ def handel_ups(top3, ups_detail, total):
                       </tr>
                       {table_tr}
                     </table>
-                    <h3>总白嫖数：{total}</h3>
-                    <h2>白嫖一时爽，一直白嫖一直爽</h2>
+                    <h3>白嫖一时爽，一直白嫖一直爽</h3>
                   </body>
                 </html>
-                """.format(table_tr=table_tr, total=total)
+                """.format(table_tr=table_tr)
     email.send_email(img_list)
     print('send email finish!')
