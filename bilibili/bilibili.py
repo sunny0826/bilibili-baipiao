@@ -165,7 +165,7 @@ def print_table(top3):
 
 
 def handel_ups(top3, ups_detail, total):
-    img_list = ["img/book.png"]
+    img_list = []
     table_tr = ''
     for i, item in enumerate(top3):
         mid = ups_detail[item[0]]['mid']
@@ -182,7 +182,7 @@ def handel_ups(top3, ups_detail, total):
             <td><img src="cid:image{count}" class="round_icon"  alt="">&nbsp;&nbsp;<a href="{url}">{name}</a></td>
             <td>{num}</td>
           </tr>
-        """.format(rank=i + 1, url=space_url, name=item[0], num=item[1], count=i + 1)
+        """.format(rank=i + 1, url=space_url, name=item[0], num=item[1], count=i)
         table_tr += tr
 
     email = EmailSend()
@@ -191,10 +191,6 @@ def handel_ups(top3, ups_detail, total):
                 <html>
                   <head>
                       <style>
-                        body {{
-                          background-image:url("cid:image{{0}}");
-                          background-repeat:no-repeat;
-                        }}
                         .round_icon{{
                           width: 34px;
                           height: 34px;
@@ -204,6 +200,8 @@ def handel_ups(top3, ups_detail, total):
                           justify-content: center;
                           overflow: hidden;
                           float:left;
+                          border-style:solid;
+                          border-width:1px;
                         }}
                         table.dataintable {{
                            border: 1px solid #888888;
@@ -230,7 +228,7 @@ def handel_ups(top3, ups_detail, total):
                   </head>
                   <body>
                     <h2>白嫖一时爽，一直白嫖一直爽</h2>
-                    <h3>总白嫖数：{total}最近白嫖最多up主 TOP3</h3>
+                    <h3>总白嫖数：{total}&nbsp;&nbsp;最近白嫖最多up主 TOP3</h3>
                     <table class="dataintable">
                       <tr>
                         <th>排名</th>
