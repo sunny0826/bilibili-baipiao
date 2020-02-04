@@ -129,7 +129,6 @@ def get_analysis(cookie_file):
     ups_detail = {}
     history = get_bilibili_history(cookie_file)
     for item in tqdm(history, desc="进度", ascii=True):
-        time.sleep(0.1)
         progress = item['progress']  # 观看进度，单位：秒
         if progress != -1 and progress < 60:
             continue
