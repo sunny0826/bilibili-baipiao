@@ -1,0 +1,8 @@
+kind: pipeline
+name: 白嫖一时爽
+
+steps:
+- name: 运行
+  image: python:3.7
+  commands:
+  - make run
