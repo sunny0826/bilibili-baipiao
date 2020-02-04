@@ -186,7 +186,7 @@ def handel_ups(top3, ups_detail, total):
         table_tr += tr
 
     email = EmailSend()
-    email.title = '白嫖周报-本周白嫖数：{total}'.format(total=total)
+    email.title = '白嫖周报-本周白嫖数：({total}/300)'.format(total=total)
     email.html = """
                 <html>
                   <head>
