@@ -14,4 +14,5 @@ steps:
     EMAIL_PASS:
       from_secret: EMAIL_PASS
   commands:
+  - export
   - make run
