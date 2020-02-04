@@ -144,7 +144,7 @@ def get_analysis(cookie_file):
     top3 = Counter(ups).most_common(3)
     print_table(top3)
     print("总白嫖数：{num}".format(num=baipiao_num))
-    handel_ups(top3, ups_detail)
+    handel_ups(top3, ups_detail, baipiao_num)
 
 
 def print_table(top3):
@@ -182,7 +182,7 @@ def handel_ups(top3, ups_detail, total):
             <td><img src="cid:image{count}" class="round_icon"  alt="">&nbsp;&nbsp;<a href="{url}">{name}</a></td>
             <td>{num}</td>
           </tr>
-        """.format(rank=i + 1, url=space_url, name=item[0], num=item[1], count=i+1)
+        """.format(rank=i + 1, url=space_url, name=item[0], num=item[1], count=i + 1)
         table_tr += tr
 
     email = EmailSend()
