@@ -42,4 +42,4 @@ class EmailSend(object):
         try:
             self.server.sendmail(self.sender_email, self.receiver_email, self.message.as_string())
         except Exception as e:
-            print('发送至 %s 失败( %s )' % (self.sender_email, e))
+            print('从 %s 发送失败( %s )' % (self.sender_email, e))
