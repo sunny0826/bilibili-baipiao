@@ -1,9 +1,9 @@
 .PHONY: run build
 
-run: export COOKIES = $(BILIBILI_COOKIES)
-run: export SENDER = $(EMAIL_SENDER)
-run: export RECEIVER = $(EMAIL_RECEIVER)
-run: export PASS = $(EMAIL_PASS)
+run: export COOKIES = $(PLUGIN_BILIBILI_COOKIES)
+run: export SENDER = $(PLUGIN_EMAIL_SENDER)
+run: export RECEIVER = $(PLUGIN_EMAIL_RECEIVER)
+run: export PASS = $(PLUGIN_EMAIL_PASS)
 
 build:
 	pip install .
